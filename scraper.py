@@ -1,7 +1,7 @@
 
 import urllib.request
 import urllib.parse
-import os, json
+import os, json, datetime
 
 def get_weather(city,api_key):
     base_url = "https://api.openweathermap.org/data/2.5/weather"
@@ -15,7 +15,11 @@ def get_weather(city,api_key):
         if response.status != 200:
             raise Exception(f"API request failed with status {response.status}")
         data = response.read()
-        return json.loads(data)
+        json_data = json.loads(data)
+        weather_info = json_data['main']
+        # add current date and time
+        weather_info['time'] = datetime.datetime.fromtimestamp(json_data['dt']).strftime("%d-%b-%Y_%H-%M-%S")
+        return weather_info
 
 if __name__ == "__main__":
     api_key = os.getenv("OWM_KEY")
@@ -28,5 +32,4 @@ if __name__ == "__main__":
         with open(filename, "w") as f:
             json.dump(weather, f, indent=2)
         print(f"Current weather in Boston:")
-        print(f"Temperature: {weather['main']['temp']}°F")
-        print(f"Weather: {weather['weather'][0]['description']}")
+        print(f"Temperature: {weather['temp']}°F")

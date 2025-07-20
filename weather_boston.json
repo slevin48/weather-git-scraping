@@ -1,45 +1,11 @@
 {
-  "coord": {
-    "lon": -71.0598,
-    "lat": 42.3584
-  },
-  "weather": [
-    {
-      "id": 803,
-      "main": "Clouds",
-      "description": "broken clouds",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 78.82,
-    "feels_like": 78.82,
-    "temp_min": 76.57,
-    "temp_max": 80.51,
-    "pressure": 1009,
-    "humidity": 74,
-    "sea_level": 1009,
-    "grnd_level": 1005
-  },
-  "visibility": 10000,
-  "wind": {
-    "speed": 11.5,
-    "deg": 210
-  },
-  "clouds": {
-    "all": 75
-  },
-  "dt": 1753026354,
-  "sys": {
-    "type": 2,
-    "id": 2013408,
-    "country": "US",
-    "sunrise": 1753003510,
-    "sunset": 1753056941
-  },
-  "timezone": -14400,
-  "id": 4930956,
-  "name": "Boston",
-  "cod": 200
+  "temp": 79.16,
+  "feels_like": 79.16,
+  "temp_min": 77.14,
+  "temp_max": 81.12,
+  "pressure": 1009,
+  "humidity": 74,
+  "sea_level": 1009,
+  "grnd_level": 1005,
+  "time": "20-Jul-2025_15-53-45"
 }
