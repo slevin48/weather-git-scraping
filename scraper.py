@@ -2,7 +2,6 @@
 import urllib.request
 import urllib.parse
 import os, json
-from datetime import datetime
 
 def get_weather(city,api_key):
     base_url = "https://api.openweathermap.org/data/2.5/weather"
@@ -25,8 +24,7 @@ if __name__ == "__main__":
     else:
         city = "boston"
         weather = get_weather(city,api_key)
-        timestamp = datetime.now().strftime("%d-%b-%Y_%H-%M-%S")
-        filename = f"{city}_{timestamp}.json"
+        filename = f"weather_{city}.json"
         with open(filename, "w") as f:
             json.dump(weather, f, indent=2)
         print(f"Current weather in Boston:")
