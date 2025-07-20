@@ -1,2 +1,7 @@
 # weather-git-scraping
-Git-scraping for weather data stored in the repo with GitHub Actions 🌦️
+
+GitHub Actions used to scrape the weather️ 🌦️
+
+![workflow.png](img/workflow.png)
+
+Inspiration: https://simonwillison.net/2020/Oct/9/git-scraping/

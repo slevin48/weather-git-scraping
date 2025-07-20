@@ -1,0 +1,4 @@
+PyGitHub 
+requests 
+python-dotenv 
+pandas
