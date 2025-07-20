@@ -1,0 +1,41 @@
+name: Weather git-scraping
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # Runs every 5 minutes
+  workflow_dispatch:
+jobs:
+  get_weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Optional: install dependencies if you have a requirements.txt
+      - name: Install dependencies (if any)
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Run scraper
+        run: |
+          # scraper.py should create a file named like:
+          # boston_19-Jul-2025_21-00-00.json
+          python scraper.py
+
+      - name: Commit and push if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+            git push
+
+env:
+  OWM_KEY: ${{secrets.OWM_KEY}}
