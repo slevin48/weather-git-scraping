@@ -25,7 +25,7 @@ jobs:
       - name: Run scraper
         run: |
           # scraper.py should create a file named like:
-          # boston_19-Jul-2025_21-00-00.json
+          # weather_boston.json
           python scraper.py
 
       - name: Commit and push if it changed
