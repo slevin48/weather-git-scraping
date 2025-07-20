@@ -1,7 +1,7 @@
 
 import urllib.request
 import urllib.parse
-import os, json, datetime
+import os, json, datetime, csv
 
 def get_weather(city,api_key):
     base_url = "https://api.openweathermap.org/data/2.5/weather"
@@ -28,8 +28,15 @@ if __name__ == "__main__":
     else:
         city = "boston"
         weather = get_weather(city,api_key)
-        filename = f"weather_{city}.json"
-        with open(filename, "w") as f:
-            json.dump(weather, f, indent=2)
+        # filename = f"weather_{city}.json"
+        # with open(filename, "w") as f:
+        #     json.dump(weather, f, indent=2)
         print(f"Current weather in Boston:")
         print(f"Temperature: {weather['temp']}°F")
+        # Write to weather.csv
+        with open(f'weather_history_{city}.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            # Write header row
+            writer.writerow(weather.keys())
+            # Write data row
+            writer.writerow(weather.values())
