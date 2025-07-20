@@ -33,10 +33,8 @@ if __name__ == "__main__":
         #     json.dump(weather, f, indent=2)
         print(f"Current weather in Boston:")
         print(f"Temperature: {weather['temp']}°F")
-        # Write to weather.csv
-        with open(f'weather_history_{city}.csv', 'w', newline='') as csvfile:
+        # Open the existing file in append mode
+        with open(f'weather_history_{city}.csv', 'a', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            # Write header row
-            writer.writerow(weather.keys())
-            # Write data row
+            # Write just the values (no header)
             writer.writerow(weather.values())
