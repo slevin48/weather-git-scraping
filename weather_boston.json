@@ -1,11 +1,11 @@
 {
-  "temp": 87.66,
-  "feels_like": 95.32,
+  "temp": 87.49,
+  "feels_like": 95.41,
   "temp_min": 82.65,
-  "temp_max": 90.41,
+  "temp_max": 90.12,
   "pressure": 1005,
-  "humidity": 62,
+  "humidity": 63,
   "sea_level": 1005,
-  "grnd_level": 1002,
-  "time": "20-Jul-2025_20-14-18"
+  "grnd_level": 1001,
+  "time": "20-Jul-2025_20-30-50"
 }
